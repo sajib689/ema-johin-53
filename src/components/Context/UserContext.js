@@ -8,6 +8,7 @@ const UserContext = ({children}) => {
     const [user,setUser] = useState(null);
     const [loading, setLoading] = useState(true)
     const createUser = (email,password) => {
+        setLoading(true);
         createUserWithEmailAndPassword(auth, email, password);
     };
     const logIn = (email,password) => {
@@ -17,6 +18,7 @@ const UserContext = ({children}) => {
     };
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     };
     useEffect(() => {
